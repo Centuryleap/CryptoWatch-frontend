@@ -25,42 +25,6 @@
   button {
     @apply outline-0;
   }
-
-  button {
-    @apply font-medium text-white;
-  }
-
-  .cards {
-    @apply space-y-5 gap-x-0 md:space-y-0 md:gap-x-8 lg:gap-x-10 md:grid md:grid-cols-2;
-  }
-
-  .constraint {
-    @apply md:container md:mx-auto px-6 xl:px-[84px] 2xl:px-[212px] overflow-hidden;
-  }
-
-  h1 {
-    @apply text-2xl lg:text-[32px] lg:leading-[48px] leading-6 text-primary-header font-semibold;
-  }
-
-  h2 {
-    @apply text-[36px] lg:text-5xl;
-  }
-
-  h3 {
-    @apply text-2xl lg:text-[32px] lg:leading-[48px] text-[#16192C] font-semibold;
-  }
-
-  h4 {
-    @apply text-xs lg:text-sm xl:text-base text-primary-explainer;
-  }
-
-  h5 {
-    @apply text-xl lg:text-2xl font-semibold;
-  }
-
-  .explainer {
-    @apply text-sm leading-normal lg:text-xl md:leading-6 lg:leading-8;
-  }
 }
 
 @layer utilities {
