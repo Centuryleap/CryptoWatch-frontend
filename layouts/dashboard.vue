@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="dashboard">
     <Sidenav />
 
@@ -42,4 +42,4 @@ section {
     }
   }
 }
-</style>
+</style> -->

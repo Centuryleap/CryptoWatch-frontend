@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="relative">
     <div class="layout lg:start-start">
       <div class="left-container min-w-[36.11%] max-w-[36.11%]">
@@ -133,4 +133,4 @@ export default {
     }
   }
 }
-</style>
+</style> -->
