@@ -2,7 +2,7 @@
   <div class="text-3xl">
     Home!
 
-    <Modal></Modal>
+    <Modal title="Sign in to your account" description="Enter you details to sign in to your account "></Modal>
   </div>
 </template>
 
