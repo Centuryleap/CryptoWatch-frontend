@@ -29,7 +29,7 @@ export const state = () => ({
       route: '/dashboard/settings'
     },
   ],
-  modalOpened: false,
+  modalOpened: true,
   position: 0,
 })
 

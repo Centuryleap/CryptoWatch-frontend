@@ -1,12 +1,12 @@
 <template>
   <div>
-    <Navigation />
+    <!-- <Navigation /> -->
 
     <div>
       <Nuxt />
     </div>
 
-    <Footer />
+    <!-- <Footer /> -->
   </div>
 </template>
 
