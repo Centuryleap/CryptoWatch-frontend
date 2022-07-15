@@ -1,7 +1,7 @@
 <template>
   <div class="modal w-full h-screen fixed left-0 top-0 z-[50]">
     <div class="modal-container w-full center h-full">
-      <div class="popup w-[320px] lg:w-[400px] overflow-y-hidden">
+      <div class="popup w-[320px] lg:w-[460px] xl:w-[516px] overflow-y-hidden">
         <div class="end">
           <button @click="close" >
             <Icon src="close"/>
@@ -10,9 +10,9 @@
 
         <div class="inner">
           <div v-if="title" class="modal-texts">
-            <h5 class="text-primary-header">{{ title }}</h5>
+            <h5 class="">{{ title }}</h5>
 
-            <p v-if="description" class="text-xs lg:text-sm text-text-3">
+            <p v-if="description" class="text-xs lg:text-sm text-text-3 font-light">
               {{ description }}
             </p>
           </div>
@@ -61,7 +61,7 @@ export default {
       @apply px-7 lg:px-8 pt-7 lg:pt-8 pb-5 md:pb-6 xl:pb-7 bg-white rounded-3xl;
 
       > .inner {
-        @apply col-center-start mt-5 lg:mt-4 mx-auto px-4 lg:px-5 xl:px-[26px];
+        @apply col-center-start mt-5 lg:mt-4 mx-auto w-full xl:max-w-[400px];
 
         &.icon {
           @aaply 
@@ -71,7 +71,7 @@ export default {
           @apply text-center space-y-1.5 lg:space-y-2;
 
           h5 {
-            @apply lg:text-2xl text-primary-1
+            @apply text-xl lg:text-2xl text-primary-1 font-medium lg:leading-[36px];
           }
         }
       }
