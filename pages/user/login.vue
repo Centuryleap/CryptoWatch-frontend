@@ -12,14 +12,14 @@
       <div class="remember-me text-primary-3 font-light">Remember me</div>
 
       <span class="block">
-        <Link to="/user/login"> Forgot your pin?</Link>
+        <Link to="/user/password/recover"> Forgot password?</Link>
       </span>
     </div>
 
-    <ActionButton> Continue </ActionButton>
+    <ActionButton to="/dashboard/home"> Continue </ActionButton>
 
     <div class="hint">
-      You don't have an account? <Link to="/user/signup"> Create one</Link>
+      You don't have an account? <Link to="/user/signup/details"> Create one</Link>
     </div>
   </Modal>
 </template>

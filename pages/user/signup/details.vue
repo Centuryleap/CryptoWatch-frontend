@@ -9,7 +9,7 @@
       <InputField type="password" placeholder="Confirm password" />
     </div>
 
-    <ActionButton class="mt-8 lg:mt-10"> Continue </ActionButton>
+    <ActionButton class="mt-8 lg:mt-10" to="/dashboard/home"> Continue </ActionButton>
 
     <div class="hint">
       Already have an account? <Link to="/user/login"> Sign In</Link>
