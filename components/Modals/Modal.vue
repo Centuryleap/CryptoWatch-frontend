@@ -60,7 +60,7 @@ export default {
   > .modal-container {
     /* @apply mt-44; */
     > .popup {
-      @apply px-6 lg:px-7 xl:px-8 pt-6 lg:pt-7 xl:pt-8 pb-5 md:pb-6 lg:pb-7 xl:pb-8 bg-white rounded-3xl lg:rounded-[28px] xl:rounded-[32px];
+      @apply px-7 lg:px-8 xl:px-[38px] pt-7 lg:pt-8 xl:pt-[38px] pb-5 md:pb-6 xl:pb-7 bg-white rounded-3xl;
 
       > .inner {
         @apply col-center-start mt-6 lg:mt-5 mx-auto;
