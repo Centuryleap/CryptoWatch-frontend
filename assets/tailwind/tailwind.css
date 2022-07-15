@@ -19,6 +19,41 @@
     background-color: #fafafa;
   }
 
+  @font-face {
+    font-family: ArgentumSans;
+    src: url("/fonts/ArgentumSans-Light.ttf");
+    font-weight: 300;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: ArgentumSans;
+    src: url("/fonts/ArgentumSans-Regular.ttf");
+    font-weight: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: ArgentumSans;
+    src: url("/fonts/ArgentumSans-Medium.ttf");
+    font-weight: 500;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: ArgentumSans;
+    src: url("/fonts/ArgentumSans-SemiBold.ttf");
+    font-weight: 600;
+    font-display: swap;
+  }
+
+    @font-face {
+    font-family: ArgentumSans;
+    src: url("/fonts/ArgentumSans-ExtraBold.ttf");
+    font-weight: 800;
+    font-display: swap;
+  }
+
   input,
   textarea,
   select,

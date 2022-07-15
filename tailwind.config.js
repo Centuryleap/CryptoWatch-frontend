@@ -9,7 +9,10 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ["Argentum sans", "sans-serif"],
+      sans: [
+        'ArgentumSans', '-apple-system', 'BlinkMacSystemFont',
+        'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'
+      ],
     },
     
     extend: {
