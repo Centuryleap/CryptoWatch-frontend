@@ -1,7 +1,7 @@
 <template>
   <Modal
-    title="Create an account"
-    description="Create an account to get started started"
+    title="Sign in to your account"
+    description="Enter you details to sign in to your account "
   >
     <div class="inputs w-full mt-9 lg:mt-12 space-y-5">
       <InputField type="email" placeholder="Email address" />

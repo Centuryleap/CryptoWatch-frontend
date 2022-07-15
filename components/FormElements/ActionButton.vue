@@ -1,17 +1,6 @@
 <template>
-  <button
-    @click="click"
-    :type="type"
-    :disabled="disabled || loading"
-  >
+  <button @click="click" :type="type" :disabled="disabled || loading">
     <slot></slot>
-
-    <div
-      v-if="loading"
-      class="bg-white/5 end absolute top-0 bottom-0 left-0 right-0 -mr-1"
-    >
-      <Loader />
-    </div>
   </button>
 </template>
 
