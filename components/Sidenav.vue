@@ -43,7 +43,7 @@ export default {
 
 <style lang="postcss" scoped>
 nav {
-  @apply fixed top-0 bottom-0 left-0 bg-white px-[13px] pt-9;
+  @apply fixed top-0 bottom-0 left-0 bg-white px-[13px] pt-9 hidden lg:block;
   border-radius: 0px 24px 24px 0px;
 
   a {
