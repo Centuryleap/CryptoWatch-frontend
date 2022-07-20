@@ -3,29 +3,29 @@ export const state = () => ({
   menu: [
     {
       title: 'Home',
-      iconActive: '/svg/menu/home',
-      iconInactive: '/svg/menu/home-outline',
+      iconActive: 'menu/home',
+      iconInactive: 'menu/home-outline',
       route: '/dashboard/home'
     },
 
     {
       title: 'Watchlist',
-      iconActive: '/svg/menu/watchlist',
-      iconInactive: '/svg/menu/watchlist-outline',
+      iconActive: 'menu/watchlist',
+      iconInactive: 'menu/watchlist-outline',
       route: '/dashboard/watchlist'
     },
 
     {
       title: 'Notifications',
-      iconActive: '/svg/menu/notifications',
-      iconInactive: '/svg/menu/notifications-outline',
+      iconActive: 'menu/notifications',
+      iconInactive: 'menu/notifications-outline',
       route: '/dashboard/notifications'
     },
 
     {
       title: 'Settings',
-      iconActive: '/svg/menu/settings',
-      iconInactive: '/svg/menu/settings-outline',
+      iconActive: 'menu/settings',
+      iconInactive: 'menu/settings-outline',
       route: '/dashboard/settings'
     },
   ],

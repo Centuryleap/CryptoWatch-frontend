@@ -9,6 +9,7 @@ import Modal from "~/components/Modals/Modal.vue";
 export default {
   name: "Home",
   title: "Home dashboard",
+  layout: "dashboard",
   components: {
     Modal,
   },
