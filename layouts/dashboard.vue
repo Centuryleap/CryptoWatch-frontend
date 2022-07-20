@@ -3,7 +3,7 @@
     <Sidenav />
 
     <section class="">
-      <!-- <TopBar class="lg:sticky top-0 z-50 px-6 lg:pr-0 lg:pl-7 xl:pl-8" /> -->
+      <TopBar class="lg:sticky top-0 z-50 px-6 lg:pr-0 lg:pl-7 xl:pl-8" />
 
       <main class="px-6 lg:pr-0 lg:pl-7 xl:pl-8">
         <div class="flex-grow min-h-full pt-6">
