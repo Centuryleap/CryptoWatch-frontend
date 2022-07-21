@@ -1,7 +1,7 @@
 <template>
   <div class="modal w-full h-screen fixed left-0 top-0 z-[50]">
     <div class="modal-container w-full center h-full">
-      <div class="popup w-[320px] lg:w-[460px] xl:w-[516px] overflow-y-hidden">
+      <div class="popup w-[330px] lg:w-[460px] xl:w-[516px] overflow-y-hidden">
         <div class="end">
           <button @click="close" >
             <Icon src="close"/>
