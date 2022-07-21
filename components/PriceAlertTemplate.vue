@@ -26,7 +26,7 @@
       <div class="high-low">
         <span class="block">
           <span class="inline-flex items-center space-x-0.5">
-            <Icon src="up" class="high" />
+            <Icon src="up" class="" />
 
             <span class="value"> $56285.89 </span>
           </span>
@@ -34,7 +34,7 @@
 
         <span class="block">
           <span class="inline-flex items-center space-x-0.5">
-            <Icon src="down" class="low" />
+            <Icon src="down" class="" />
 
             <span class="value"> $56285.89 </span>
           </span>

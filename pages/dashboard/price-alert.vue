@@ -1,6 +1,21 @@
 <template>
   <div>
-    <PriceAlertTemplate />
+    <div class="alerts">
+      <PriceAlertTemplate />
+      <PriceAlertTemplate />
+      <PriceAlertTemplate />
+      <PriceAlertTemplate />
+      <PriceAlertTemplate />
+      <PriceAlertTemplate />
+      <PriceAlertTemplate />
+      <PriceAlertTemplate />
+      <PriceAlertTemplate />
+      <PriceAlertTemplate />
+      <PriceAlertTemplate />
+      <PriceAlertTemplate />
+      <PriceAlertTemplate />
+      <PriceAlertTemplate />
+    </div>
   </div>
 </template>
 
@@ -21,6 +36,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="postcss" scoped>
+.alerts {
+  @apply space-y-2.5
+}
 </style>
