@@ -31,14 +31,14 @@ section {
   @apply lg:ml-24 lg:mr-6;
 
   main {
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 85px);
 
     @screen lg {
-    min-height: calc(100vh - 92px);
+    min-height: calc(100vh - 100px);
     }
 
     @screen xl {
-    min-height: calc(100vh - 100px);
+    min-height: calc(100vh - 104px);
     }
   }
 }
