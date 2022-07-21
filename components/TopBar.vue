@@ -8,7 +8,7 @@
           {{ this.$route.meta.title }}
         </div>
 
-        <div class="search-feild bg-white hidden md:flex">
+        <div class="search-feild bg-white hidden md:flex" v-if="this.$route.path === '/dashboard/home'">
           <input type="search" name="search" placeholder="Search">
 
           <Icon src="search" class="search-icon" />
