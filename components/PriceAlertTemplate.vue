@@ -1,5 +1,5 @@
 <template>
-  <div class="template between">
+  <div class="template between" @click="click">
     <div class="left w-1/2 md:w-3/5 between lg:w-1/2">
       <div class="coin-info start">
         <Icon src="btc" class="" />
@@ -62,12 +62,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    click() {
+      this.$emit("click");
+    }
+  }
+};
 </script>
 
 <style lang="postcss" scoped>
 .template {
-  @apply px-3 md:px-5 xl:px-[35px] py-3.5 lg:py-4 bg-white;
+  @apply px-3 md:px-5 xl:px-[35px] py-3.5 lg:py-4 bg-white cursor-pointer;
 
   > .left {
     > .coin-info {
