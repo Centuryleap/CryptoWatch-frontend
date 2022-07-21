@@ -28,7 +28,7 @@ export default {
 }
 
 section {
-  @apply lg:ml-[108px] xl:ml-[124px] lg:mr-10 xl:mr-[50px] 2xl:mr-[60px];
+  @apply lg:ml-24 lg:mr-6;
 
   main {
     min-height: calc(100vh - 80px);

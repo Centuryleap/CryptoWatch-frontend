@@ -8,7 +8,7 @@
           {{ this.$route.meta.title }}
         </div>
 
-        <div class="search-feild bg-white">
+        <div class="search-feild bg-white hidden md:flex">
           <input type="search" name="search" placeholder="Search">
 
           <Icon src="search" class="search-icon" />
@@ -58,7 +58,7 @@ computed: {
 }
 
 .search-feild {
-  @apply flex items-center pr-4 rounded-2xl w-full focus:outline-none md:w-[300px] xl:min-w-[410px];
+  @apply items-center pr-4 rounded-2xl w-full focus:outline-none md:w-[300px] xl:min-w-[410px];
 
   input {
     @apply w-full py-2.5 px-4 text-sm placeholder:text-text-3 leading-[24px] rounded-2xl font-light
