@@ -8,7 +8,7 @@
           </button>
         </div>
 
-        <div class="inner">
+        <div class="inner col-center-start">
           <div v-if="title" class="modal-texts">
             <h5 class="">{{ title }}</h5>
 
@@ -61,7 +61,7 @@ export default {
       @apply px-7 lg:px-8 pt-7 lg:pt-8 pb-6 xl:pb-7 bg-white rounded-3xl;
 
       > .inner {
-        @apply col-center-start mt-5 lg:mt-4 mx-auto w-full xl:max-w-[400px];
+        @apply mt-5 lg:mt-4 mx-auto w-full xl:max-w-[400px];
 
         &.icon {
           @aaply 

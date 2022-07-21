@@ -17,10 +17,10 @@ export const state = () => ({
     },
 
     {
-      title: 'Notifications',
+      title: 'Price alert',
       iconActive: 'menu/notifications',
       iconInactive: 'menu/notifications-outline',
-      route: '/dashboard/notifications'
+      route: '/dashboard/price-alert'
     },
 
     {
