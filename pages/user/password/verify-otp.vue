@@ -7,7 +7,7 @@
       <InputField otp />
     </div>
 
-    <ActionButton class="mt-8 lg:mt-10" to="/user/password/reset"> Verify </ActionButton>
+    <ActionButton class="mt-8 lg:mt-10" to="/dashboard/home"> Verify </ActionButton>
 
     <div class="hint">
       <Link to="/user/password/recover">Back</Link>

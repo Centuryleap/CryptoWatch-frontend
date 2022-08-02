@@ -20,6 +20,7 @@ module.exports = {
         "primary-1": "#010923",
         "primary-2": "#072692",
         "primary-3": "#6888F8",
+        "primary-4": "#01071D",
         "text-1": "#16192C",
         "text-2": "#1F2436",
         "text-3": "#888C99",

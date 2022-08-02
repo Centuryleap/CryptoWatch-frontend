@@ -25,7 +25,5 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.circle {
-  @apply w-11 h-11 rounded-full inline-flex justify-center items-center;
-}
+
 </style>
