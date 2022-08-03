@@ -33,7 +33,7 @@
         <Icon src="search" class="search-icon w-5" />
       </div>
 
-      <div class="list space-y-3 lg:space-y-4 mt-4 w-full h-full max-h-[342px] lg:max-h-[424px] overflow-y-scroll">
+      <div class="list">
         <AddCoinElement />
         <AddCoinElement />
         <AddCoinElement />
@@ -76,5 +76,9 @@ export default {
   input {
     @apply w-full py-3 lg:py-4 px-4 text-sm placeholder:text-text-3 leading-[24px] rounded-2xl font-light;
   }
+}
+
+.list {
+  @apply space-y-3 lg:space-y-4 mt-4 w-full h-full max-h-[342px] lg:max-h-[424px] overflow-y-scroll;
 }
 </style>

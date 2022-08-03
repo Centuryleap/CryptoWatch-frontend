@@ -12,6 +12,14 @@ export default {
       type: String,
     },
     rounded: Boolean,
+    submit: {
+      type: Boolean,
+      default: false,
+    },
+    reset: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   computed: {
