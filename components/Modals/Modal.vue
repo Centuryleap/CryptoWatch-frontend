@@ -1,7 +1,7 @@
 <template>
-  <div class="modal w-full h-screen fixed left-0 top-0 z-[50]">
+  <div class="modal w-full h-screen fixed left-0 top-0 z-[50]" >
     <div class="modal-container w-full center h-full">
-      <div class="popup w-[330px] lg:w-[460px] xl:w-[516px] overflow-y-hidden">
+      <div :class="`popup ${pb}`">
         <div class="end">
           <button @click="close" >
             <Icon src="close"/>
@@ -39,6 +39,10 @@ export default {
     },
 
     icon: String,
+    pb: {
+      type: String,
+      default: 'pb-6 xl:pb-7',
+    },
   },
 
   methods: {
@@ -58,7 +62,7 @@ export default {
   > .modal-container {
     /* @apply mt-44; */
     > .popup {
-      @apply px-7 lg:px-8 pt-7 lg:pt-8 pb-6 xl:pb-7 bg-[#FAFAFA] rounded-3xl;
+      @apply px-7 lg:px-8 pt-7 lg:pt-8 bg-[#FAFAFA] rounded-3xl w-[330px] lg:w-[460px] xl:w-[516px] overflow-y-hidden;
 
       > .inner {
         @apply mt-5 lg:mt-4 mx-auto w-full xl:max-w-[400px];

@@ -25,6 +25,7 @@
     <Modal
       title="Add coin to watchlist"
       description="Select currencies to add to your watchlist"
+      pb="pb-0"
     >
       <div class="search-feild bg-white hidden md:flex">
         <input type="search" name="search" placeholder="Search" />
@@ -32,7 +33,9 @@
         <Icon src="search" class="search-icon w-5" />
       </div>
 
-      <div class="list space-y-3 lg:space-y-4 mt-4">
+      <div class="list space-y-3 lg:space-y-4 mt-4 w-full h-full max-h-[342px] lg:max-h-[424px] overflow-y-scroll">
+        <AddCoinElement />
+        <AddCoinElement />
         <AddCoinElement />
         <AddCoinElement />
         <AddCoinElement />
