@@ -32,7 +32,7 @@ export default {};
 
 <style lang="postcss" scoped>
 .card {
-  @apply bg-white first:bg-primary-1 first:text-white text-primary-4  p-4 pt-6 rounded-2xl lg:rounded-[22px] xl:pt-8 xl:pb-5 xl:pl-6 xl:pr-4;
+  @apply bg-white first:bg-primary-1 first:text-white text-primary-4  p-4 pt-6 rounded-2xl lg:rounded-[22px] xl:pt-8 xl:pb-5 xl:pl-6 xl:pr-4 shrink-0;
 
   > .icon-info {
     @apply space-x-1 lg:space-x-2;

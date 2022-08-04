@@ -11,7 +11,7 @@
       <WatchCard />
       <WatchCard />
 
-      <div class="add">
+      <div class="add cursor-pointer" @click="toggleModal">
         <div class="mx-auto w-fit col-center">
           <div class="center">
             <Icon src="add" class="w-[18px] xl:w-6" />
@@ -23,6 +23,7 @@
     </div>
 
     <Modal
+      v-if="modalOpened"
       title="Add coin to watchlist"
       description="Select currencies to add to your watchlist"
       pb="pb-0"
@@ -47,10 +48,19 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
 export default {
   name: "Watchlist",
   title: "Watchlist",
   layout: "dashboard",
+
+  computed: {
+    ...mapState(["modalOpened"])
+  },
+
+  methods: {
+    ...mapMutations(["toggleModal"])
+  }
 };
 </script>
 
