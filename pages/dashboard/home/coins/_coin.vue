@@ -1,6 +1,6 @@
 <template>
   <div>
-    slug!!!
+    slugg)
   </div>
 </template>
 

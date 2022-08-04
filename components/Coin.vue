@@ -56,7 +56,7 @@ export default {
   
   methods: {
     click() {
-      this.$emit("click");
+      this.$router.push("home/coins/bitcoin");
     },
   },
 };
