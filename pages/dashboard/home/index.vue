@@ -12,8 +12,16 @@
       </div>
     </Box>
 
-    <Box title="All coins" big link="View all" to="/dashboard/all-coins">
+    <Box title="All coins" big link="View all" to="/dashboard/home/coins">
       <div class="all">
+        <Coin />
+        <Coin />
+        <Coin />
+        <Coin />
+        <Coin />
+        <Coin />
+        <Coin />
+        <Coin />
         <Coin />
       </div>
     </Box>
