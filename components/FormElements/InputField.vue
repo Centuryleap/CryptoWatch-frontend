@@ -1,5 +1,5 @@
 <template>
-  <div class="input">
+  <Field class="input" :name="name" :rules="rules">
     <input
       :type="type"
       ref="input"
@@ -8,10 +8,11 @@
       @input.prevent="updateModel"
       :max="max"
     />
-  </div>
+  </Field>
 </template>
 
 <script>
+import Field from "./Field.vue";
 export default {
   props: {
     type: {
@@ -22,27 +23,25 @@ export default {
       type: String,
       default: "--",
     },
-
     value: [String, Number],
     max: {
       // type: Number,
       default: null,
     },
+    name: String,
+    rules: String,
   },
-
   data() {
     return {
       model: 0,
     };
   },
-
   methods: {
     updateModel(e) {
       this.model = e.target.value;
       this.$emit("input", this.model);
     },
   },
-
   watch: {
     value: {
       immediate: true,
@@ -53,12 +52,13 @@ export default {
       },
     },
   },
+  components: { Field },
 };
 </script>
 
 <style lang="postcss" scoped>
 .input {
-  @apply  border border-text-4 rounded-xl;
+  @apply border border-text-4 rounded-xl;
   @apply placeholder:text-text-4 text-primary-1 font-light text-sm w-full;
 }
 

@@ -3,27 +3,35 @@
     title="Create an account"
     description="Create an account to get started started"
   >
-    <form @submit.prevent="createUser">
-      <div class="inputs">
-        <InputField
-          type="email"
-          placeholder="Email address"
-          v-model="user.email"
-        />
-        <InputField
-          type="password"
-          placeholder="Password"
-          v-model="user.password"
-        />
-        <InputField
-          type="password"
-          placeholder="Confirm password"
-          v-model="user.confirmPassword"
-        />
-      </div>
+    <ValidationObserver v-slot="{ valid }" class="w-full">
+      <form @submit.prevent="createUser(valid)">
+        <div class="inputs">
+          <InputField
+            type="email"
+            name="Email"
+            placeholder="Email address"
+            v-model="user.email"
+            rules="required|email"
+          />
+          <InputField
+            type="password"
+            name="Password"
+            placeholder="Password"
+            v-model="user.password"
+            rules="required|min:8"
+          />
+          <InputField
+            type="password"
+            name="Confirm password"
+            placeholder="Confirm password"
+            v-model="user.confirmPassword"
+            rules="required|compare_password:@Password"
+          />
+        </div>
 
-      <ActionButton submit class="mt-8 lg:mt-10"> Continue </ActionButton>
-    </form>
+        <ActionButton submit class="mt-8 lg:mt-10"> Continue </ActionButton>
+      </form>
+    </ValidationObserver>
 
     <div class="hint">
       Already have an account? <Link to="/user/login"> Sign In</Link>
@@ -51,18 +59,22 @@ export default {
   },
 
   methods: {
-    async createUser() {
-      let signup = await axios.post(
-        "https://cryptowatch-server.herokuapp.com/auth/signup",
-        {
-          email: this.user.email,
-          password: this.user.password,
-          confirmpassword: this.user.confirmPassword,
-        }
-      );
+    async createUser(valid) {
+      if (valid) {
+        let signup = await axios.post(
+          "https://cryptowatch-server.herokuapp.com/auth/signup",
+          {
+            email: this.user.email,
+            password: this.user.password,
+            confirmPassword: this.user.confirmPassword,
+          }
+        );
 
-      if (signup.status === 201){
-        alert("Account created successfully");
+        if (signup.status === 201) {
+          this.$router.push("/user/login");
+        }
+      } else {
+        alert("Please fill in all fields");
       }
     },
   },
