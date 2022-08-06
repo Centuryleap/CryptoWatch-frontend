@@ -1,13 +1,15 @@
 <template>
-  <Field class="input" :name="name" :rules="rules">
-    <input
-      :type="type"
-      ref="input"
-      :value="value"
-      :placeholder="placeholder"
-      @input.prevent="updateModel"
-      :max="max"
-    />
+  <Field :name="name" :rules="rules">
+    <div class="input">
+      <input
+        :type="type"
+        ref="input"
+        :value="value"
+        :placeholder="placeholder"
+        @input.prevent="updateModel"
+        :max="max"
+      />
+    </div>
   </Field>
 </template>
 
@@ -58,7 +60,7 @@ export default {
 
 <style lang="postcss" scoped>
 .input {
-  @apply border border-text-4 rounded-xl;
+  @apply border border-text-4 rounded-xl bg-transparent;
   @apply placeholder:text-text-4 text-primary-1 font-light text-sm w-full;
 }
 

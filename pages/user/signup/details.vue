@@ -18,7 +18,7 @@
             name="Password"
             placeholder="Password"
             v-model="user.password"
-            rules="required|min:8"
+            rules="required|min:6"
           />
           <InputField
             type="password"
@@ -29,7 +29,9 @@
           />
         </div>
 
-        <ActionButton submit class="mt-8 lg:mt-10"> Continue </ActionButton>
+        <ActionButton submit :loading="loading" class="mt-8 lg:mt-10">
+          Continue
+        </ActionButton>
       </form>
     </ValidationObserver>
 
@@ -44,7 +46,6 @@ import InputField from "~/components/FormElements/InputField.vue";
 import ActionButton from "~/components/FormElements/ActionButton.vue";
 import Modal from "~/components/Modals/Modal.vue";
 import axios from "axios";
-import { Result } from "postcss";
 export default {
   components: { Modal, InputField, ActionButton },
 
@@ -55,12 +56,14 @@ export default {
         password: "",
         confirmPassword: "",
       },
+      loading: false,
     };
   },
 
   methods: {
     async createUser(valid) {
       if (valid) {
+        this.loading = true;
         let signup = await axios.post(
           "https://cryptowatch-server.herokuapp.com/auth/signup",
           {
@@ -70,8 +73,15 @@ export default {
           }
         );
 
+        this.processing = false;
+
         if (signup.status === 201) {
           this.$router.push("/user/login");
+          console.log(signup)
+        }
+
+        else {
+          console.warn(signup)
         }
       } else {
         alert("Please fill in all fields");
@@ -87,7 +97,7 @@ export default {
 }
 
 .inputs {
-  @apply w-full mt-9 lg:mt-12 space-y-4 lg:space-y-5;
+  @apply w-full mt-9 lg:mt-12;
 }
 form {
   @apply w-full;

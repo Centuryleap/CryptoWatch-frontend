@@ -1,8 +1,10 @@
 <template>
   <ValidationProvider :name="name" :rules="rules" v-slot="{ errors }">
-    <slot></slot>
-    <div class="text-red-500 text-xs mt-2 ml-4">
-      {{ errors[0] }}
+    <div class="field">
+      <slot></slot>
+      <div class="text-red-500 text-xs mt-2 ml-4 text-right">
+        {{ errors[0] }}
+      </div>
     </div>
   </ValidationProvider>
 </template>
@@ -16,4 +18,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="postcss" scoped>
+.field {
+  @apply mb-4 lg:mb-5
+}
+</style>
