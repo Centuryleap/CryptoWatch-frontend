@@ -1,6 +1,5 @@
 export const state = () => ({
   appName: 'Crypto Watch',
-  loggedIn: true,
   menu: [
     {
       title: 'Home',

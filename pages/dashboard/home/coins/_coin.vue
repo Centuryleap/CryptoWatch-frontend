@@ -1,6 +1,6 @@
 <template>
   <div>
-    slugg)
+    {{ $route.params.coin }}
   </div>
 </template>
 

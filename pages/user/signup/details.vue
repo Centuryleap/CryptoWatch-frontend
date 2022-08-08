@@ -64,25 +64,21 @@ export default {
     async createUser(valid) {
       if (valid) {
         this.loading = true;
-        let signup = await axios.post(
-          "https://cryptowatch-server.herokuapp.com/auth/signup",
-          {
+        let signup = await axios
+          .post("/auth/signup", {
             email: this.user.email,
             password: this.user.password,
             confirmPassword: this.user.confirmPassword,
-          }
-        );
-
-        this.processing = false;
-
-        if (signup.status === 201) {
-          this.$router.push("/user/login");
-          console.log(signup)
-        }
-
-        else {
-          console.warn(signup)
-        }
+          })
+          .then((response) => {
+            this.loading = false;
+            this.$router.push("/user/login");
+            console.log(response);
+          })
+          .catch((error) => {
+            this.loading = false;
+            console.log(error.response);
+          });
       } else {
         alert("Please fill in all fields");
       }
