@@ -16,7 +16,7 @@
       </div>
 
       <div class="right-container space-x-2 lg:space-x-3 xl:space-x-3 start flex">
-        <ActionButton to="/user/login" rounded v-if="!$store.state.loggedIn">
+        <ActionButton to="/user/login" rounded v-if="!loggedIn">
           Sign In
         </ActionButton>
 
@@ -28,7 +28,7 @@
           <Icon src="avatar" />
 
           <span class="text-primary-2 text-sm hidden md:block font-light">
-            James Howard
+            {{ email}}
           </span>
 
           <Icon src="arrow-down" class="hidden md:block" />
@@ -39,8 +39,17 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
-computed: {
+  computed: {
+    loggedIn() {
+      return this.$store.state.user.loggedIn;
+    },
+
+    email() {
+      return this.$store.state.user.email;
+    },
+
     currentRoute() {
       return this.$route.path.split('/');
     },
