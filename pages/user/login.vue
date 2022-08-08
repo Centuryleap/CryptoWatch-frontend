@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import axios from "axios";
+// import axios from "axios";
 import InputField from "~/components/FormElements/InputField.vue";
 import ActionButton from "~/components/FormElements/ActionButton.vue";
 import Modal from "~/components/Modals/Modal.vue";
@@ -77,8 +77,8 @@ export default {
       var checkbox = document.getElementById("checkbox");
       if (valid) {
         this.loading = true;
-        axios
-          .post("/auth/login", {
+        this.$axios
+          .post("auth/login", {
             email: this.user.email,
             password: this.user.password,
           })
@@ -88,10 +88,11 @@ export default {
               this.setEmail(this.user.email);
               Cookie.set("Cryptowatch", response.data.token);
               this.toggleLoginStatus();
+              this.$router.push("/dashboard");
             }
           })
           .catch((error) => {
-            console.log(error);
+            console.log(error.response);
           })
           .finally(() => {
             this.loading = false;

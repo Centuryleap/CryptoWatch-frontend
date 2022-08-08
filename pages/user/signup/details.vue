@@ -45,7 +45,7 @@
 import InputField from "~/components/FormElements/InputField.vue";
 import ActionButton from "~/components/FormElements/ActionButton.vue";
 import Modal from "~/components/Modals/Modal.vue";
-import axios from "axios";
+// import axios from "axios";
 export default {
   components: { Modal, InputField, ActionButton },
 
@@ -64,7 +64,7 @@ export default {
     async createUser(valid) {
       if (valid) {
         this.loading = true;
-        let signup = await axios
+        let signup = await this.$axios
           .post("/auth/signup", {
             email: this.user.email,
             password: this.user.password,
