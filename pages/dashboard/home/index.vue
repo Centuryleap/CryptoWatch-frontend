@@ -14,7 +14,7 @@
 
     <Box title="All coins" big link="View all" to="/dashboard/home/coins">
       <div class="all">
-        <Coin v-for="coin in coinsData.coins" :key="coin.id"  :name="coin.name" :short="coin.symbol" :amount="coin.current_price" :sevenDaysPercentage="coin.price_change_percentage_24h" />
+        <Coin v-for="coin in coinsData.coins" :key="coin.id"  :name="coin.name" :short="coin.symbol" :amount="coin.current_price" :sevenDaysPercentage="coin.price_change_percentage_24h" :route="coin.id" />
       </div>
     </Box>
   </div>

@@ -62,6 +62,10 @@ export default {
       type: Number,
       default: 10,
     },
+    route: {
+      type: String,
+      default: "/",
+    },
   },
   
   data() {
@@ -82,7 +86,7 @@ export default {
   
   methods: {
     click() {
-      this.$router.push("home/coins/bitcoin");
+      this.$router.push(`home/coins/${this.route}`);
     },
   },
 };
