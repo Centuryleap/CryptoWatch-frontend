@@ -13,7 +13,7 @@
       </div>
 
       <div class="prices">
-        <span class="price"> ${{ amount }} </span>
+        <span class="price"> ${{ price }} </span>
 
         <span class="currency-shorts"> {{ short }}/USD </span>
       </div>
@@ -25,7 +25,7 @@
 
     <div class="right between">
       <div class="stats">
-        <span class="percentage" :class=" signIsPositive ? 'text-[#008000]' : 'text-[#E24949]'"> {{ sevenDaysPercentage.toFixed(2) }}% </span>
+        <span class="percentage" :class=" sevenDaysPercentage >= 0 ? 'text-[#008000]' : 'text-[#E24949]'"> {{ sevenDaysPercentage.toFixed(2) }}% </span>
 
         <span class="text"> 7d </span>
       </div>
@@ -39,7 +39,7 @@
       </button>
 
       <div class="price-seven">
-        <span class="amount"> ${{ amount }} </span>
+        <span class="amount"> ${{ price }} </span>
 
         <span class="seven" :class=" signIsPositive ? 'text-[#008000]' : 'text-[#E24949]'"> {{ sevenDaysPercentage.toFixed(2) }}% </span>
       </div>
@@ -75,12 +75,10 @@ export default {
   },
 
   computed: {
-    signIsPositive() {
-      if (this.sevenDaysPercentage.toString().split("")[0] === "-") {
-        return false;
-      } else {
-        return true;
-      }
+    price() {
+      var parts = this.amount.toString().split(".");
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return parts.join(".");
     },
   },
   
