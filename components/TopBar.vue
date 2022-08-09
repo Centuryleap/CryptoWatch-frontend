@@ -24,7 +24,7 @@
           <Icon src="notification" />
         </div>
 
-        <div class="avatar-info bg-white p-1.5 rounded-xl md:flex md:space-x-2.5 items-center">
+        <div class="avatar-info bg-white p-1.5 rounded-xl md:flex md:space-x-2.5 items-center" v-if="loggedIn">
           <Icon src="avatar" />
 
           <span class="text-primary-2 text-sm hidden md:block font-light">
