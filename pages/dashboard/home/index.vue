@@ -14,21 +14,14 @@
 
     <Box title="All coins" big link="View all" to="/dashboard/home/coins">
       <div class="all">
-        <Coin />
-        <Coin />
-        <Coin />
-        <Coin />
-        <Coin />
-        <Coin />
-        <Coin />
-        <Coin />
-        <Coin />
+        <Coin v-for="coin in coins" :key="coin.id" :src="coin.image" />
       </div>
     </Box>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 import Modal from "~/components/Modals/Modal.vue";
 import Box from "../../../components/Box.vue";
 export default {
@@ -39,6 +32,25 @@ export default {
     Modal,
     Box,
   },
+
+  // data() {
+  //   return {
+  //     coins: [],
+  //     loading: true,
+  //     error: null,
+  //   };
+  // },
+
+  async asyncData() {
+    const api = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d";
+    const coins = await axios.get(api).then((res) => { return res.data});
+    return { coins };
+  },
+
+  // async mounted() {
+  //   this.coins = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d");
+  //   console.log(this.coins);
+  // }
 };
 </script>
 

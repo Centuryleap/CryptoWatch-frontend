@@ -2,7 +2,8 @@
   <div class="template between md:grid grid-cols-3" @click="click">
     <div class="left w-2/5 md:w-auto between">
       <div class="coin-info start">
-        <Icon src="btc" class="" />
+        <!-- <Icon src="btc" class="" /> -->
+        <img :src="src" alt="">
 
         <div>
           <span class="name"> Bitcoin </span>
@@ -48,6 +49,17 @@
 
 <script>
 export default {
+  name: "Coin",
+  props: {
+    src: {
+      type: String,
+    },
+
+    name: {
+      type: String,
+    },
+  },
+  
   data() {
     return {
       added: false
@@ -69,6 +81,9 @@ export default {
   > .left {
     > .coin-info {
       @apply space-x-2.5 lg:space-x-5 xl:space-x-6;
+      img {
+        width: 40px;
+      }
 
       > div {
         span.name {
