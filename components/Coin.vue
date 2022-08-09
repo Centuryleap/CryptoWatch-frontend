@@ -41,7 +41,7 @@
       <div class="price-seven">
         <span class="amount"> ${{ price }} </span>
 
-        <span class="seven" :class=" signIsPositive ? 'text-[#008000]' : 'text-[#E24949]'"> {{ sevenDaysPercentage.toFixed(2) }}% </span>
+        <span class="seven" :class="sevenDaysPercentage >= 0 ? 'text-[#008000]' : 'text-[#E24949]'"> {{ sevenDaysPercentage.toFixed(2) }}% </span>
       </div>
     </div>
   </div>
