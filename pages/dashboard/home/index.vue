@@ -14,7 +14,7 @@
 
     <Box title="All coins" big link="View all" to="/dashboard/home/coins">
       <div class="all">
-        <Coin v-for="coin in coins" :key="coin.id" :src="coin.image" />
+        <Coin v-for="coin in coinsData.coins" :key="coin.id"  :name="coin.name" :short="coin.symbol" :amount="coin.current_price" :sevenDaysPercentage="coin.price_change_percentage_24h" />
       </div>
     </Box>
   </div>
@@ -35,21 +35,26 @@ export default {
 
   // data() {
   //   return {
-  //     coins: [],
-  //     loading: true,
-  //     error: null,
+  //     coinImage: [],
   //   };
   // },
 
   async asyncData() {
-    const api = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d";
-    const coins = await axios.get(api).then((res) => { return res.data});
-    return { coins };
+    // const imageApi = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d";
+    const dataApi = "https://cryptowatch-server.herokuapp.com/feed/allcoins";
+
+    // const coinsImage = await axios.get(imageApi).then((res) => { return res.data});
+    const coinsData = await axios.get(dataApi).then((res) => { return res.data });
+
+    // console.log(coinsImage);
+    return { coinsData };
   },
 
   // async mounted() {
-  //   this.coins = await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d");
-  //   console.log(this.coins);
+  //   const imageApi = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d";
+  //   this.coinImage = await axios.get(imageApi).then((res) => { return res.data });
+
+  //   console.log(this.coinImage[0].image);
   // }
 };
 </script>

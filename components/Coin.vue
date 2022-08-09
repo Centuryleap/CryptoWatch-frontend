@@ -1,21 +1,21 @@
 <template>
   <div class="template between md:grid grid-cols-3" @click="click">
-    <div class="left w-2/5 md:w-auto between">
+    <div class="left w-1/2 md:w-auto between">
       <div class="coin-info start">
         <!-- <Icon src="btc" class="" /> -->
         <img :src="src" alt="">
 
         <div>
-          <span class="name"> Bitcoin </span>
+          <span class="name"> {{ name }} </span>
 
-          <span class="short"> BTC </span>
+          <span class="short"> {{ short }} </span>
         </div>
       </div>
 
       <div class="prices">
-        <span class="price"> $56,000 </span>
+        <span class="price"> ${{ amount }} </span>
 
-        <span class="currency-shorts"> BTC/USD </span>
+        <span class="currency-shorts"> {{ short }}/USD </span>
       </div>
     </div>
 
@@ -25,7 +25,7 @@
 
     <div class="right between">
       <div class="stats">
-        <span class="percentage"> 4.28% </span>
+        <span class="percentage" :class=" signIsPositive ? 'text-[#008000]' : 'text-[#E24949]'"> {{ sevenDaysPercentage.toFixed(2) }}% </span>
 
         <span class="text"> 7d </span>
       </div>
@@ -39,9 +39,9 @@
       </button>
 
       <div class="price-seven">
-        <span class="amount"> $56,000 </span>
+        <span class="amount"> ${{ amount }} </span>
 
-        <span class="seven"> 4.28% </span>
+        <span class="seven" :class=" signIsPositive ? 'text-[#008000]' : 'text-[#E24949]'"> {{ sevenDaysPercentage.toFixed(2) }}% </span>
       </div>
     </div>
   </div>
@@ -55,8 +55,12 @@ export default {
       type: String,
     },
 
-    name: {
-      type: String,
+    name: String,
+    short: String,
+    amount: Number,
+    sevenDaysPercentage: {
+      type: Number,
+      default: 10,
     },
   },
   
@@ -64,6 +68,16 @@ export default {
     return {
       added: false
     };
+  },
+
+  computed: {
+    signIsPositive() {
+      if (this.sevenDaysPercentage.toString().split("")[0] === "-") {
+        return false;
+      } else {
+        return true;
+      }
+    },
   },
   
   methods: {
@@ -82,28 +96,29 @@ export default {
     > .coin-info {
       @apply space-x-2.5 lg:space-x-5 xl:space-x-6;
       img {
-        width: 40px;
+        min-width: 40px;
+        min-height: 40px;
       }
 
       > div {
         span.name {
-          @apply text-sm lg:text-base font-light md:font-normal text-text-1 block;
+          @apply text-sm lg:text-base font-light md:font-normal text-text-1 block truncate w-[100px] sm:w-[150px] md:w-[130px] lg:w-[140px] xl:w-auto;
         }
 
         span.short {
-          @apply text-xs text-text-4-pro block font-light;
+          @apply text-xs text-text-4-pro block font-light uppercase;
         }
       }
     }
 
     > .prices {
-      @apply hidden sm:block;
+      @apply hidden sm:block ;
       span.price {
-        @apply text-sm lg:text-base font-light text-text-1 block;
+        @apply text-sm lg:text-base font-light text-text-1 block w-[70px] truncate xl:w-[100px];
       }
 
       span.currency-shorts {
-        @apply text-xs text-text-4-pro block font-light;
+        @apply text-xs text-text-4-pro block font-light uppercase;
       }
     }
   }
@@ -120,7 +135,7 @@ export default {
     > .stats {
       @apply hidden md:block;
       span.percentage {
-        @apply text-sm lg:text-base font-light text-[#E24949] block;
+        @apply text-sm lg:text-base font-light block;
       }
 
       span.text {
@@ -129,13 +144,13 @@ export default {
     }
 
     > .price-seven {
-      @apply md:hidden;
+      @apply md:hidden text-right;
       span.amount {
-        @apply text-sm lg:text-base font-light text-text-1 block;
+        @apply text-sm lg:text-base font-light text-text-1 block w-[65px] truncate;
       }
 
       span.seven {
-        @apply text-xs text-[#E24949] block font-light text-right;
+        @apply text-xs  block font-light text-right;
       }
     }
   }
