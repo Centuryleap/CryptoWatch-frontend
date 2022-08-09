@@ -14,7 +14,7 @@
 
     <Box title="All coins" big link="View all" to="/dashboard/home/coins">
       <div class="all">
-        <Coin v-for="coin in coinsData.coins" :key="coin.id"  :name="coin.name" :short="coin.symbol" :amount="coin.current_price" :sevenDaysPercentage="coin.price_change_percentage_24h" :route="coin.id" />
+        <Coin v-for="coin in coinsData.coins" :key="coin.id" :name="coin.name" :short="coin.symbol" :amount="coin.current_price" :sevenDaysPercentage="coin.price_change_percentage_7d_in_currency" :route="coin.id" />
       </div>
     </Box>
   </div>
@@ -49,13 +49,6 @@ export default {
     // console.log(coinsImage);
     return { coinsData };
   },
-
-  // async mounted() {
-  //   const imageApi = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d";
-  //   this.coinImage = await axios.get(imageApi).then((res) => { return res.data });
-
-  //   console.log(this.coinImage[0].image);
-  // }
 };
 </script>
 
