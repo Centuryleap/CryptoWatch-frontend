@@ -73,7 +73,9 @@
           </div>
 
           <div class="bottom end">
-            <button class="set-price-alert" @click="toggleModal">Set price alert</button>
+            <button class="set-price-alert" @click="toggleModal">
+              Set price alert
+            </button>
 
             <button class="add-to-watchlist">
               <Icon src="star-outline" class="inline" />
@@ -83,6 +85,12 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="graph p-6 bg-white rounded-2xl max-w-[1080px]">
+      <client-only>
+        <Graph :series="chart.series" :chartOptions="chart.chartOptions" :minWidth="300" :height="230" />
+      </client-only>
     </div>
 
     <div class="mobile-coin-details">
@@ -120,7 +128,7 @@
         <span class="label volume"> Volume (USDT) </span>
       </div>
     </div>
-    
+
     <Modal
       title="Set Price alert"
       description="Get notified when the coin price get to your set price"
@@ -149,20 +157,24 @@
           <div class="label flex items-center">
             <Icon src="up" class="w-4" />
 
-            <span class="text-[#008000] text-xs lg:text-sm font-light">High</span>
+            <span class="text-[#008000] text-xs lg:text-sm font-light"
+              >High</span
+            >
           </div>
 
-          <input type="text" v-model="high">
+          <input type="text" v-model="high" />
         </div>
 
         <div class="low between">
           <div class="label flex items-center">
             <Icon src="down" class="w-4" />
 
-            <span class="text-[#E24949] text-xs lg:text-sm font-light">Low</span>
+            <span class="text-[#E24949] text-xs lg:text-sm font-light"
+              >Low</span
+            >
           </div>
 
-          <input type="text" v-model="low">
+          <input type="text" v-model="low" />
         </div>
       </div>
 
@@ -185,6 +197,73 @@ export default {
     return {
       high: "$20,000.67",
       low: "$20,000.67",
+
+      chart: {
+        series: [
+          {
+            name: "series1",
+            data: [0, 40, 28, 51, 42, 109, 100, 120, 110, 100, 140, 200],
+          },
+        ],
+        chartOptions: {
+          chart: {
+            type: "line",
+            toolbar: false,
+            foreColor: "#999999",
+            offsetX: 0,
+            sparkline: {
+              enabled: true,
+            },
+          },
+          dataLabels: {
+            enabled: false,
+          },
+          xaxis: {
+            type: "string",
+            max: 12,
+            categories: [
+              "JAN",
+              "FEB",
+              "MAR",
+              "APR",
+              "MAY",
+              "JUN",
+              "JUL",
+              "AUG",
+              "SEP",
+              "OCT",
+              "NOV",
+              "DEC",
+            ],
+          },
+          tooltip: {
+            x: {
+              format: "dd/MM/yy HH:mm",
+            },
+          },
+          legend: {
+            show: false,
+          },
+
+          colors: ["#008000"],
+          stroke: {
+            show: true,
+            curve: "straight",
+            width: 2,
+            lineCap: "round",
+          },
+
+          fill: {
+            type: "gradient",
+            gradient: {
+              shadeIntensity: 1,
+              opacityFrom: 0.2,
+              opacityTo: 0.4,
+              stops: [0, 100, 100],
+            },
+          },
+        },
+      },
     };
   },
 
@@ -320,7 +399,7 @@ export default {
 .mobile-coin-details {
   @apply p-6 grid grid-cols-2 gap-6 rounded-2xl bg-white md:hidden;
 
-  span.text{
+  span.text {
     @apply text-text-2 font-light block;
   }
 
@@ -333,7 +412,7 @@ export default {
 }
 
 .selected-coin-info {
-  @apply mt-8 lg:mt-10 ;
+  @apply mt-8 lg:mt-10;
   > .coin-info {
     @apply space-x-2;
 
@@ -350,21 +429,22 @@ export default {
   }
 
   > .current {
-      @apply text-right;
-      span.amount {
-        @apply text-sm lg:text-base font-medium text-[#01071D] block;
-      }
-
-      span.short {
-        @apply text-xs lg:text-sm text-text-3 block font-light;
-      }
+    @apply text-right;
+    span.amount {
+      @apply text-sm lg:text-base font-medium text-[#01071D] block;
     }
+
+    span.short {
+      @apply text-xs lg:text-sm text-text-3 block font-light;
+    }
+  }
 }
 
 .inputs {
   @apply space-y-3 lg:space-y-4 w-full mt-12 lg:mt-16;
 
-  > .high, .low {
+  > .high,
+  .low {
     @apply rounded-xl border border-text-4 px-3 lg:px-3.5 w-full;
 
     input {

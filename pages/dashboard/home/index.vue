@@ -11,10 +11,11 @@
         </div>
       </div>
     </Box>
+    
 
     <Box title="All coins" big link="View all" to="/dashboard/home/coins">
       <div class="all">
-        <Coin v-for="coin in coinsData.coins" :key="coin.id" :name="coin.name" :short="coin.symbol" :amount="coin.current_price" :sevenDaysPercentage="coin.price_change_percentage_7d_in_currency" :route="coin.id" />
+        <Coin v-for="coin in coinsData.coins.slice(0, 5)" :key="coin.id" :name="coin.name" :short="coin.symbol" :amount="coin.current_price" :sevenDaysPercentage="coin.price_change_percentage_7d_in_currency" :route="coin.id" />
       </div>
     </Box>
   </div>
