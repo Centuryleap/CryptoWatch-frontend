@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="space-y-4 md:space-y-5 lg:space-y-7 xl:space-y-8">
     <div class="coin-card">
       <div class="coin-card-container">
         <div class="left between md:block">
@@ -84,6 +84,42 @@
         </div>
       </div>
     </div>
+
+    <div class="mobile-coin-details">
+      <div class="high">
+        <span class="text">
+          {{ addComma(coinData.high_24h) }}
+        </span>
+
+        <span class="label text-[#00A31A]"> High </span>
+      </div>
+
+      <div class="low place-self-end min-w-[100px]">
+        <span class="text">
+          {{ addComma(coinData.low_24h) }}
+        </span>
+
+        <span class="label text-[#E52F15]"> Low </span>
+      </div>
+
+      <div class="volume-coin">
+        <span class="text">
+          {{ coinVolume }}
+        </span>
+
+        <span class="label volume">
+          Volume ({{ coinData.symbol.toUpperCase() }})
+        </span>
+      </div>
+
+      <div class="volume-usd place-self-end min-w-[100px]">
+        <span class="text">
+          {{ usdtVolume }}
+        </span>
+
+        <span class="label volume"> Volume (USDT) </span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -105,7 +141,7 @@ export default {
 
   computed: {
     price() {
-      return this.addComma(this.coinData.price)
+      return this.addComma(this.coinData.price);
     },
 
     coinVolume() {
@@ -215,6 +251,21 @@ export default {
           @apply rounded-[12px] py-3 px-3 text-sm lg:text-base font-light text-[#FAFAFA] bg-[#F44B03] inline-flex items-center space-x-1;
         }
       }
+    }
+  }
+}
+
+.mobile-coin-details {
+  @apply p-6 grid grid-cols-2 gap-6 rounded-2xl bg-white;
+
+  span.text{
+    @apply text-text-2 font-light block;
+  }
+
+  span.label {
+    @apply text-xs font-light block;
+    &.volume {
+      @apply text-text-3;
     }
   }
 }
