@@ -73,7 +73,7 @@
           </div>
 
           <div class="bottom end">
-            <button class="set-price-alert">Set price alert</button>
+            <button class="set-price-alert" @click="toggleModal">Set price alert</button>
 
             <button class="add-to-watchlist">
               <Icon src="star-outline" class="inline" />
@@ -120,17 +120,77 @@
         <span class="label volume"> Volume (USDT) </span>
       </div>
     </div>
+    
+    <Modal
+      title="Set Price alert"
+      description="Get notified when the coin price get to your set price"
+      v-if="modalOpened"
+    >
+      <div class="selected-coin-info between w-full">
+        <div class="coin-info start">
+          <Icon src="btc" class="w-11" />
+
+          <div>
+            <span class="name"> {{ coinData.name }} </span>
+
+            <span class="short"> {{ coinData.symbol.toUpperCase() }} </span>
+          </div>
+        </div>
+
+        <div class="current">
+          <span class="short"> {{ coinData.symbol.toUpperCase() }}/USD </span>
+
+          <span class="amount"> ${{ price }} </span>
+        </div>
+      </div>
+
+      <div class="inputs">
+        <div class="high between">
+          <div class="label flex items-center">
+            <Icon src="up" class="w-4" />
+
+            <span class="text-[#008000] text-xs lg:text-sm font-light">High</span>
+          </div>
+
+          <input type="text" v-model="high">
+        </div>
+
+        <div class="low between">
+          <div class="label flex items-center">
+            <Icon src="down" class="w-4" />
+
+            <span class="text-[#E24949] text-xs lg:text-sm font-light">Low</span>
+          </div>
+
+          <input type="text" v-model="low">
+        </div>
+      </div>
+
+      <ActionButton class="mt-10 lg:mt-14 mb-4 lg:mb-7">
+        Set alert
+      </ActionButton>
+    </Modal>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import { mapState, mapMutations } from "vuex";
 
 export default {
   name: "Coin",
   layout: "dashboard",
 
+  data() {
+    return {
+      high: "$20,000.67",
+      low: "$20,000.67",
+    };
+  },
+
   methods: {
+    ...mapMutations(["toggleModal"]),
+
     addComma(number) {
       var parts = number.toString().split(".");
       parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -140,6 +200,8 @@ export default {
   },
 
   computed: {
+    ...mapState(["modalOpened"]),
+
     price() {
       return this.addComma(this.coinData.price);
     },
@@ -256,7 +318,7 @@ export default {
 }
 
 .mobile-coin-details {
-  @apply p-6 grid grid-cols-2 gap-6 rounded-2xl bg-white;
+  @apply p-6 grid grid-cols-2 gap-6 rounded-2xl bg-white md:hidden;
 
   span.text{
     @apply text-text-2 font-light block;
@@ -266,6 +328,47 @@ export default {
     @apply text-xs font-light block;
     &.volume {
       @apply text-text-3;
+    }
+  }
+}
+
+.selected-coin-info {
+  @apply mt-8 lg:mt-10 ;
+  > .coin-info {
+    @apply space-x-2;
+
+    > div {
+      @apply space-y-1;
+      span.name {
+        @apply text-sm lg:text-base font-medium text-[#01071D] block;
+      }
+
+      span.short {
+        @apply text-xs text-text-3 block font-light;
+      }
+    }
+  }
+
+  > .current {
+      @apply text-right;
+      span.amount {
+        @apply text-sm lg:text-base font-medium text-[#01071D] block;
+      }
+
+      span.short {
+        @apply text-xs lg:text-sm text-text-3 block font-light;
+      }
+    }
+}
+
+.inputs {
+  @apply space-y-3 lg:space-y-4 w-full mt-12 lg:mt-16;
+
+  > .high, .low {
+    @apply rounded-xl border border-text-4 px-3 lg:px-3.5 w-full;
+
+    input {
+      @apply py-[18px] lg:py-[22px] max-w-[80px] text-xs lg:text-sm font-light text-text-2 text-right focus:outline-none bg-transparent;
     }
   }
 }
