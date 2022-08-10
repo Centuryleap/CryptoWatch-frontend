@@ -87,6 +87,7 @@ export default {
               console.log(response);
               this.setEmail(this.user.email);
               Cookie.set("Cryptowatch", response.data.token);
+              Cookie.set("Email", this.user.email);
               this.toggleLoginStatus();
               this.$router.push("/dashboard");
             }
