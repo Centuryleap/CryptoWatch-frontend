@@ -92,7 +92,7 @@ export default {
 
 <style lang="postcss" scoped>
 .template {
-  @apply px-3 md:px-5 xl:px-[35px] py-3.5 lg:py-4 bg-white cursor-pointer;
+  @apply px-3 md:px-5 xl:px-[35px] py-3.5 lg:py-4 bg-white cursor-pointer hover:bg-[#F0F4FE] duration-300;
 
   > .left {
     > .coin-info {
