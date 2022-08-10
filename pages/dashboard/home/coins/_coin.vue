@@ -39,7 +39,7 @@
           <div class="top between">
             <div class="high">
               <span class="text">
-                {{ coinData.high_24h }}
+                {{ addComma(coinData.high_24h) }}
               </span>
 
               <span class="label"> High </span>
@@ -47,7 +47,7 @@
 
             <div class="low">
               <span class="text">
-                {{ coinData.low_24h }}
+                {{ addComma(coinData.low_24h) }}
               </span>
 
               <span class="label"> Low </span>
@@ -94,11 +94,18 @@ export default {
   name: "Coin",
   layout: "dashboard",
 
+  methods: {
+    addComma(number) {
+      var parts = number.toString().split(".");
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      // console.log(parts.join("."))
+      return parts.join(".");
+    },
+  },
+
   computed: {
     price() {
-      var parts = this.coinData.price.toString().split(".");
-      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      return parts.join(".");
+      return this.addComma(this.coinData.price)
     },
 
     coinVolume() {
