@@ -87,10 +87,26 @@
       </div>
     </div>
 
-    <div class="graph p-6 bg-white rounded-2xl max-w-[1080px]">
+    <div class="graph">
       <client-only>
-        <Graph :series="chart.series" :chartOptions="chart.chartOptions" :minWidth="300" :height="230" />
+        <Graph
+          :series="chart.series"
+          :chartOptions="chart.chartOptions"
+          :minWidth="300"
+          :height="300"
+        />
       </client-only>
+
+      <div class="selectors evenly">
+        <button
+          v-for="filter in filters"
+          :key="filter.id"
+          :class="{ active: filter.id === position }"
+          @click="position = filter.id"
+        >
+          {{ filter.name }}
+        </button>
+      </div>
     </div>
 
     <div class="mobile-coin-details">
@@ -197,6 +213,33 @@ export default {
     return {
       high: "$20,000.67",
       low: "$20,000.67",
+      position: 0,
+      filters: [
+        {
+          id: 0,
+          name: "1H",
+        },
+        {
+          id: 1,
+          name: "1D",
+        },
+        {
+          id: 2,
+          name: "1W",
+        },
+        {
+          id: 3,
+          name: "1M",
+        },
+        {
+          id: 4,
+          name: "1Y",
+        },
+        {
+          id: 5,
+          name: "ALL",
+        },
+      ],
 
       chart: {
         series: [
@@ -391,6 +434,21 @@ export default {
         > .add-to-watchlist {
           @apply rounded-[12px] py-3 px-3 text-sm lg:text-base font-light text-[#FAFAFA] bg-[#F44B03] inline-flex items-center space-x-1;
         }
+      }
+    }
+  }
+}
+
+.graph {
+  @apply p-4 pt-[22px] md:p-5 md:pt-6 lg:px-12 lg:pb-6 lg:pt-10 bg-white rounded-2xl lg:rounded-[32px] max-w-[1080px];
+
+  > .selectors {
+    @apply mt-1.5 md:mt-2 lg:mt-3 xl:mt-3.5;
+    button {
+      @apply rounded-[4px] md:rounded-md lg:rounded-xl py-1 w-[24px] md:py-2 md:w-[32px] lg:py-2.5 xl:w-[44px] text-[#666666] text-[10px] md:text-xs lg:text-sm xl:text-base bg-[#F0F4FE] duration-300;
+
+      &.active {
+        @apply bg-primary-3 text-white;
       }
     }
   }
