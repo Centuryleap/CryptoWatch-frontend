@@ -1,5 +1,7 @@
 <template>
   <div class="space-y-14">
+    <!-- <div v-if="$nuxt.isOffline">You are offline</div> -->
+    
     <Box title="My watchlist" big link="View all" to="/dashboard/watchlist">
       <div class="watchlist">
         <div class="watchlist-container">
@@ -11,11 +13,12 @@
         </div>
       </div>
     </Box>
+    <!-- <button class="bg-black" @click="$nuxt.refresh()">lol</button> -->
     
 
     <Box title="All coins" big link="View all" to="/dashboard/home/coins">
       <div class="all">
-        <Coin v-for="coin in coinsData.coins.slice(0, 5)" :key="coin.id" :name="coin.name" :short="coin.symbol" :amount="coin.current_price" :sevenDaysPercentage="coin.price_change_percentage_7d_in_currency" :route="coin.id" />
+        <Coin v-for="coin in coinsData.coins.slice(0, 5)" :key="coin.id" :name="coin.name" :short="coin.symbol" :amount="coin.current_price" :sevenDaysPercentage="coin.price_change_percentage_7d_in_currency" :route="coin.id"  />
       </div>
     </Box>
   </div>
@@ -41,7 +44,7 @@ export default {
   // },
 
   async asyncData() {
-    // const imageApi = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d";
+    const imageApi = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd÷&order=market_cap_desc&per_page=1&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d";
     const dataApi = "https://cryptowatch-server.herokuapp.com/feed/allcoins";
 
     // const coinsImage = await axios.get(imageApi).then((res) => { return res.data});
@@ -50,6 +53,13 @@ export default {
     // console.log(coinsImage);
     return { coinsData };
   },
+
+  mounted() {
+    // Refresh api calls every 120 seconds
+    setInterval(() => {
+      this.$nuxt.refresh();
+    }, 120000);
+  }
 };
 </script>
 
