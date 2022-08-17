@@ -1,7 +1,7 @@
 <template>
-  <div class="template between md:grid grid-cols-3" @click="click">
+  <div class="template between md:grid grid-cols-3">
     <div class="left w-1/2 md:w-auto between">
-      <div class="coin-info start">
+      <div class="coin-info start" @click="click">
         <!-- <Icon src="btc" class="" /> -->
         <img :src="src" alt="">
 
@@ -27,7 +27,8 @@
 
     <div class="right between">
       <div class="stats">
-        <span class="percentage" :class=" sevenDaysPercentage >= 0 ? 'text-[#008000]' : 'text-[#E24949]'"> {{ sevenDaysPercentage.toFixed(2) }}% </span>
+        <span class="percentage" :class=" sevenDaysPercentage >= 0 ? 'text-[#008000]' : 'text-[#E24949]'"> {{
+          sevenDaysPercentage.toFixed(2) }}% </span>
 
         <span class="text"> 7d </span>
       </div>
@@ -43,7 +44,8 @@
       <div class="price-seven">
         <span class="amount"> ${{ price }} </span>
 
-        <span class="seven" :class="sevenDaysPercentage >= 0 ? 'text-[#008000]' : 'text-[#E24949]'"> {{ sevenDaysPercentage.toFixed(2) }}% </span>
+        <span class="seven" :class="sevenDaysPercentage >= 0 ? 'text-[#008000]' : 'text-[#E24949]'"> {{
+          sevenDaysPercentage.toFixed(2) }}% </span>
       </div>
     </div>
   </div>
@@ -81,7 +83,7 @@ export default {
       chart: {
         series: [
           {
-            name: "series1",
+            name: "Price",
             data: this.seriesData,
           },
         ],

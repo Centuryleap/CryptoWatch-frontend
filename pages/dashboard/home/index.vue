@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-14">
     <!-- <div v-if="$nuxt.isOffline">You are offline</div> -->
-    
+
     <Box title="My watchlist" big link="View all" to="/dashboard/watchlist">
       <div class="watchlist">
         <div class="watchlist-container">
@@ -14,11 +14,14 @@
       </div>
     </Box>
     <!-- <button class="bg-black" @click="$nuxt.refresh()">lol</button> -->
-    
+
 
     <Box title="All coins" big link="View all" to="/dashboard/home/coins">
       <div class="all">
-        <Coin v-for="coin in coinsData.coins.slice(0, 5)" :key="coin.id" :src="coin.image" :name="coin.name" :short="coin.symbol" :amount="coin.current_price" :sevenDaysPercentage="coin.price_change_percentage_7d_in_currency" :route="coin.id"  />
+        <Coin v-for="coin in coinsData.coins.slice(0, 5)" :key="coin.id" :src="coin.image" :name="coin.name"
+          :short="coin.symbol" :amount="coin.current_price"
+          :sevenDaysPercentage="coin.price_change_percentage_7d_in_currency" :route="coin.id"
+          :seriesData="coin.sparkline_in_7d.price" />
       </div>
     </Box>
   </div>
