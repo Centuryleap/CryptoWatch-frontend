@@ -164,8 +164,8 @@ display: none;
     > .coin-info {
       @apply space-x-2.5 lg:space-x-5 xl:space-x-6;
       img {
-        min-width: 40px;
-        min-height: 40px;
+        width: 40px;
+        height: 40px;
       }
 
       > div {
