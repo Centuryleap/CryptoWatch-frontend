@@ -21,6 +21,10 @@ import ActionButton from "~/components/FormElements/ActionButton.vue";
 import Modal from "~/components/Modals/Modal.vue";
 export default {
   components: { Modal, InputField, ActionButton },
+
+  mounted() {
+    console.log(this.$route.query.token);
+  }
 };
 </script>
 

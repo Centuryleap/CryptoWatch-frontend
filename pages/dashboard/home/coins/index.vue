@@ -1,15 +1,9 @@
 <template>
   <Box title="All coins" big>
     <div class="all">
-      <Coin
-        v-for="coin in coinsData.coins"
-        :key="coin.id"
-        :name="coin.name"
-        :short="coin.symbol"
-        :amount="coin.current_price"
-        :sevenDaysPercentage="coin.price_change_percentage_7d_in_currency"
-        :route="coin.id"
-      />
+      <LazyCoin v-for="coin in coinsData.coins" :key="coin.id" :name="coin.name" :short="coin.symbol"
+        :amount="coin.current_price" :sevenDaysPercentage="coin.price_change_percentage_7d_in_currency" :route="coin.id"
+        :src="coin.image"  />
     </div>
   </Box>
 </template>

@@ -4,8 +4,8 @@
       <div class="coin-card-container">
         <div class="left between md:block">
           <div class="inner-left start">
-            <Icon src="btc" />
-            <!-- <img :src="coinData.image" :alt="`An image of the ${coinData.name} coin`"> -->
+            <!-- <Icon src="btc" /> -->
+            <img :src="coinData.image.large" :alt="`An image of the ${coinData.name} coin`">
 
             <div class="">
               <span class="name">
@@ -245,7 +245,7 @@ export default {
         series: [
           {
             name: "series1",
-            data: [0, 40, 28, 51, 42, 109, 100, 120, 110, 100, 140, 200],
+            data: () => []
           },
         ],
         chartOptions: {
@@ -262,22 +262,8 @@ export default {
             enabled: false,
           },
           xaxis: {
-            type: "string",
-            max: 12,
-            categories: [
-              "JAN",
-              "FEB",
-              "MAR",
-              "APR",
-              "MAY",
-              "JUN",
-              "JUL",
-              "AUG",
-              "SEP",
-              "OCT",
-              "NOV",
-              "DEC",
-            ],
+            type: "Number",
+            min: 0,
           },
           tooltip: {
             x: {
@@ -328,6 +314,16 @@ export default {
       return this.addComma(this.coinData.price);
     },
 
+    // sparkline() {
+    //   if (this.coinData.sparkline) {
+    //     console.log(this.coinData.sparkline, "sparkline");
+    //     return this.coinData.sparkline.value;
+    //   } else {
+    //     console.log(this.coinData.sparkline, "sparkline");
+    //     return [];
+    //   }
+    // },
+
     coinVolume() {
       const num = this.coinData.btc_volume;
       if (num > 999 && num < 1000000) {
@@ -362,10 +358,19 @@ export default {
       return res.data.coinData;
     });
 
+    // this.chart.series.data = coinData.sparkline.price
+
     console.log(coinData);
 
     return { coinData };
   },
+
+  mounted() {
+    this.chart.series[0].data = this.coinData.sparkline.price;
+
+
+    console.log(this.chart.series[0].data, "series", this.coinData.sparkline.price);
+  }
 };
 </script>
 
@@ -440,7 +445,7 @@ export default {
 }
 
 .graph {
-  @apply p-4 pt-[22px] md:p-5 md:pt-6 lg:px-12 lg:pb-6 lg:pt-10 bg-white rounded-2xl lg:rounded-[32px] max-w-[1080px];
+  @apply p-4 pt-[22px] md:p-5 md:pt-6 lg:px-12 lg:pb-6 lg:pt-10 bg-white rounded-2xl lg:rounded-[32px] max-w-[1080px] lg:h-[422px];
 
   > .selectors {
     @apply mt-1.5 md:mt-2 lg:mt-3 xl:mt-3.5;

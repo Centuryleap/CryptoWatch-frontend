@@ -48,6 +48,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { mapState, mapMutations } from 'vuex';
 export default {
   name: "Watchlist",
@@ -60,6 +61,29 @@ export default {
 
   methods: {
     ...mapMutations(["toggleModal"])
+  },
+
+  // async asyncData() {
+  //   // const imageApi = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d%2C14d";
+  //   const dataApi = "https://cryptowatch-server.herokuapp.com/watchlist/fullwatchlist";
+
+  //   // const coinsImage = await axios.get(imageApi).then((res) => { return res.data});
+  //   const coinsData = await axios.get("https://cryptowatch-server.herokuapp.com/watchlist/fullwatchlist").then((res) => {
+  //     return res.data;
+  //   }).then((response) => {
+  //     console.log(response)
+  //   })
+
+  //   console.log(coinsData);
+  //   return { coinsData };
+  // },
+
+  async mounted() {
+    await axios.get("https://cryptowatch-server.herokuapp.com/watchlist/fullwatchlist").then((res) => {
+      return res.data;
+    }).then((response) => {
+      console.log(response)
+    })
   }
 };
 </script>
