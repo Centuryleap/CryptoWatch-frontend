@@ -56,7 +56,7 @@ import Cookie from "js-cookie";
 export default {
   computed: {
     loggedIn() {
-      if (Cookie.get("Cryptowatch") === "") {
+      if (Cookie.get("Cryptowatch") === undefined) {
         return false;
       } else {
         return true;
@@ -65,8 +65,8 @@ export default {
 
     email() {
       const email = Cookie.get("Email");
-      if (this.loggedIn && email !== null) {
-        return email
+      if (this.loggedIn && email !== undefined) {
+        return email;
       } else {
         return null;
       };

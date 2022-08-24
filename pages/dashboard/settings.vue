@@ -91,6 +91,11 @@ export default {
 
   methods: {
     ...mapMutations(["toggleModal"])
+  },
+
+  mounted() {
+    // Logout
+    
   }
 };
 </script>
